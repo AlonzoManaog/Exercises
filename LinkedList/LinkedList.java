@@ -99,5 +99,24 @@ public class LinkedList {
                 current = current.next;
             }
         }
-    }    
+    } 
+    public static Node removeDuplicates(Node node, int value)
+    {
+        if (node == null)
+        {
+            return null;
+        }
+
+        if (node.value == value)
+        {
+            return removeDuplicates(node.next, value);
+        }
+        else
+        {
+            node.next =  removeDuplicates(node.next, value);
+        }
+        return node;
+	// Time: O(n)
+	// Space: O(n)
+    }
 }
